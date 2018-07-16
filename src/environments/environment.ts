@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_PATH:'https://y6lddyow6f.execute-api.us-east-1.amazonaws.com/dev',
+  META_PATH:"/efs",
+  VERSION: require('../../package.json').version
 };
 
 /*

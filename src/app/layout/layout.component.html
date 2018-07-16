@@ -1,0 +1,361 @@
+
+<header id="nav" class="dark-nav">
+
+    <!-- Sticky Navigation -->
+    <!-- for static Navbar: remove navbar-fixed-top; add navbar-static-top and navbar-light -->
+    <nav class="navbar navbar-fixed-top  navbar-dark">
+      <div class="container">
+        <div class="navbar-header">
+
+          <!-- Menu Button for Mobile Devices -->
+          <button type="button" class="collapse navbar-toggle navbar-icon" data-toggle="collapse" data-target="#navbar-collapse">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- Logo -->
+          <a href="/" class="navbar-brand logo-k smooth-scroll"><span></span></a>
+
+        </div>
+        <!-- /End Navbar hero -->
+
+        <div class="collapse navbar-collapse-md" id="navbar-collapse">
+
+          <!-- Navigation Links -->
+          <ul class="nav navbar-nav navbar-left">
+
+		   <li>
+			   <div class="dropdown" style="padding-top: 9px;">
+				  <a href="#function" class="smooth-scroll dropbtn" style="text-decoration: none;color: #22baff;">Products</a>
+				  <div class="dropdown-content" style="padding-top: 9px;font-size: 14px;">
+					<a href="http://FamilyKuvrr.com">Family Kuvrr</a>
+					<a href="#function">Safety Kuvrr</a>
+				  </div>
+				</div>
+			   <div class="dropdown" style="padding-top: 9px;">
+				  <a href="#function" class="smooth-scroll dropbtn" style="text-decoration: none;color: #22baff;">Solutions</a>
+				  <div class="dropdown-content" style="padding-top: 0px;font-size: 14px;">
+					<a href="https://www.kuvrr.com/products/family-kuvrr/FamilyKuvrrSegments">For Families</a>
+				  </div>
+				</div>
+			</li>		
+			<li><a href="#Threat" class="smooth-scroll">Threat Kuvrr</a></li>
+            <li><a href="https://www.kuvrr.com/#About" class="smooth-scroll">About Us</a></li>
+			<!-- <li><a href="https://www.kuvrr.com" class="smooth-scroll">News</a></li> -->
+			<li><a href="https://www.kuvrr.com/#contact" class="smooth-scroll">Contact Us</a></li>
+            <!--<li><a href="#testimonials" class="smooth-scroll">Testimonials</a></li> -->
+            <!--<li><a href="#gallery" class="smooth-scroll">Gallery</a></li> -->
+            
+
+          </ul>
+
+          <!-- Social Links -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <ul class="social">
+                <li><a class="btn-circle btn-circle-sm btn-color" href="https://twitter.com/KuvrrMe"
+                       target="_blank"><i
+                    class="fa fa-twitter"></i></a>
+                </li>
+                <li><a class="btn-circle btn-circle-sm btn-color"
+                       href="https://www.facebook.com/KuvrrMe"
+                       target="_blank"><i
+                    class="fa fa-facebook"></i></a>
+                </li>
+                <li><a class="btn-circle btn-circle-sm btn-color"
+                       href="https://www.linkedin.com/in/KuvrrMe"
+                       target="_blank"><i
+                    class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- /End Navigation Links -->
+
+        </div>
+        <!-- /End Navbar Collapse -->
+
+      </div>
+    </nav>
+    <!-- /END Sticky Navigation -->
+
+  </header>
+
+  <section id="Threat" class="bg-dark section-p-lg">
+      <div class="container">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-2 sidebar-border-right">
+                <div class="border-bottom pt-3 pb-3 mb-3">
+                  <div class="mb-3">
+                    <label class="mb-0">Client</label>
+                  <p-dropdown [options]="clients" 
+                  [(ngModel)]="selectedClient" 
+                  placeholder="Select a Client" 
+                  optionLabel="name"
+                  dataKey="id"
+                  autoWidth="false"
+                  [style]="{'width':'175px'}"
+                  (onChange)="clientChanged($event)"
+                  [showClear]="false"></p-dropdown>
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <label class="mb-0">Camera</label>
+                    <p-dropdown [options]="camera" 
+                    [(ngModel)]="selectedCamera" 
+                    placeholder="Select a Camera" 
+                    optionLabel="name"
+                    dataKey="id"
+                    autoWidth="false"
+                    (onChange)="cameraChanged($event)"
+                    [style]="{'width':'175px'}"
+                    [showClear]="false"></p-dropdown>
+                  </div>
+                  
+                  <ul class="nav nav-pills nav-stacked" style="margin-top: 20px;">
+                      <li role="presentation">
+                        <a [routerLink]="['/live']" >Live Stream</a></li>
+                      <li role="presentation"><a 
+                        [routerLink]="['/search']">Search</a></li>
+                    </ul>
+
+                </div> 
+                </div>
+          <div class="col-sm-10" style="min-height: 400px;">
+              <p-messages [(value)]="msgs" [closable]="false"></p-messages>
+
+              <router-outlet></router-outlet>
+          </div>
+        </div>
+          </div>
+</section>
+
+
+  <section id="contact" class="bg-grey section-p-lg">
+    <div class="container wrapper-h-xs-lg reveal-bottom-opacity text-color">
+      <div class="row">
+
+        <!-- Headline & Description -->
+        <div class="col-md-8 col-md-offset-2 wrapper-v-lg text-center">
+          <h2>Contact Us</h2>
+
+          <p>Questions? Comments? Partnerships? Write to us.</p>
+        </div>
+        <!-- /End Headline & Description -->
+
+        <div class="col-md-8 col-md-offset-2 wrapper-v-lg text-center">
+
+          <!-- Contact Form -->
+          <form action="php/contact-process.php" id="contact-form" method="post">
+            <div class="row">
+              <div class="col-sm-6">
+
+                <!-- Input Name -->
+                <div class="form-group" id="name-field">
+                  <label for="form-name" class="sr-only">Name</label>
+                  <input type="text" class="form-control form-control-silver" id="form-name"
+                         name="form-name"
+                         placeholder="Name" required>
+                </div>
+                <!-- /End Input Name -->
+
+              </div>
+              <div class="col-sm-6">
+
+                <!-- Input Email -->
+                <div class="form-group" id="email-field">
+                  <label for="form-email" class="sr-only">Email</label>
+                  <input type="email" class="form-control form-control-silver" id="form-email"
+                         name="form-email"
+                         placeholder="Email" required>
+                </div>
+                <!-- /End Input Email -->
+
+              </div>
+              <div class="col-sm-12">
+
+                <!-- Input Message -->
+                <div class="form-group" id="message-field">
+                  <label for="form-message" class="sr-only">Message</label>
+                  <textarea class="form-control form-control-silver" rows="12" id="form-message"
+                            name="form-message"
+                            placeholder="Message" required></textarea>
+                </div>
+                <!-- /End Input Message -->
+
+                <!-- Message -->
+                <div class="form-group">
+                  <div id="message-contact" class="message text-center">
+                    <span class="message-icon"><i class="fa fa-info"></i></span>
+                    <span class="message-text"></span>
+                  </div>
+                </div>
+                <!-- /End Message -->
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                  <button type="submit" class="btn btn-color">Send Message</button>
+                </div>
+                <!-- /End Submit Button -->
+
+              </div>
+            </div>
+          </form>
+          <!-- /End Contact Form -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="company" class="bg-color-light section-p-sm">
+      <div class="container reveal-bottom-opacity text-dark">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-md-0 col-sm-offset-0 wrapper-v-lg">
+            <div class="row">
+  
+              <!-- Contact Details -->
+              <div class="col-sm-4 wrapper-v-sm block-line">
+        <i class="material-icons">
+        location_on
+        </i>	
+        <!-- Contact Details -->
+        
+                <!-- Address -->
+                <div class="block text-left">
+                  <p><b>2700 Patriot Blvd., Suite 250,<br>
+                    Glenview, IL 60026</b></p>
+                </div>
+                <!-- /End Address -->
+  
+              </div>
+              <!-- /End Contact Details -->
+  
+              <!-- Contact Details -->
+              <div class="col-sm-4 wrapper-v-sm block-line">
+  
+                <!-- Icon
+                <div class="block icon-md icon-color">
+                  <i class="icon icon-basic-mail"></i>
+                </div>
+                /End Icon -->
+  
+                <!-- Address
+                <div class="block text-left">
+                  <p><a class="link-silver" href="mailto:family@kuvrr.com">family@kuvrr.com</a>
+                  </p>
+                </div>
+            
+                /End Address -->
+  
+              </div>
+              <!-- /End Contact Details -->
+  
+              <!-- Contact Details -->
+              <div class="col-sm-4 wrapper-v-sm block-line">
+  
+          <i class="material-icons">local_phone</i>
+                <!-- Address -->
+                <div class="block text-left">
+                  <p><b><a class="link-dark" href="tel:+16617458877">(661) 7 4 KUVRR</a><br>M-F : 9am - 5pm</b></p>
+                </div>
+                <!-- /End Address -->
+  
+              </div>
+              <!-- /End Contact Details -->
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="bg-dark section-p-sm">
+        <div class="container">
+          <div class="row">
+    
+            <!-- Company Details -->
+            <div class="col-md-6 wrapper-v-sm text-center-md text-color">
+              <p class="text-light">
+                <a class="link-color" href="https://kuvrr.com/products/family-kuvrr/terms-main-content.php">Terms</a>
+                <span class="separator">|</span>
+                <a class="link-color" href="https://www.kuvrr.com/privacy-policy">Privacy Policy</a><br>
+                © 2016 ArmourGrid Inc. Made with <i class="material-icons red md-18">favorite</i> in the land of Lincoln and Gandhi.
+              </p>
+            </div>
+            <!-- /End Company Details -->
+    
+            <!-- Buttons Social -->
+            <div class="col-md-6 wrapper-v-sm text-right text-center-md">
+              <ul class="social">
+                <li>
+                  <a class="btn-circle btn-circle-sm btn-color" href="https://facebook.com/KuvrrMe"
+                     target="_blank"><i
+                      class="fa fa-facebook"></i></a></li>
+                <li><a class="btn-circle btn-circle-sm btn-color" href="https://twitter.com/KuvrrMe"
+                       target="_blank"><i
+                    class="fa fa-twitter"></i></a></li>
+                <li><a class="btn-circle btn-circle-sm btn-color" href="https://www.linkedin.com/in/KuvrrMe"
+                       target="_blank"><i
+                    class="fa fa-linkedin"></i></a></li>
+                         </ul>
+            </div>
+            <!-- /End Buttons Social -->
+    
+          </div>
+          <div class="row">
+            <div class="col-md-12">Version: {{version}} </div>
+            
+          </div>
+        </div>
+      </footer>
+
+<!-- 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2 border-right">
+        <div class="border-bottom pt-3 pb-3 mb-3">
+          <div class="mb-3">
+            <label class="mb-0">Client</label>
+          <p-dropdown [options]="clients" 
+          [(ngModel)]="selectedClient" 
+          placeholder="Select a Client" 
+          optionLabel="name"
+          dataKey="id"
+          autoWidth="false"
+          [style]="{'width':'175px'}"
+          (onChange)="clientChanged($event)"
+          [showClear]="false"></p-dropdown>
+          </div>
+          <div>
+            <label class="mb-0">Camera</label>
+            <p-dropdown [options]="camera" 
+            [(ngModel)]="selectedCamera" 
+            placeholder="Select a Camera" 
+            optionLabel="name"
+            dataKey="id"
+            autoWidth="false"
+            (onChange)="cameraChanged($event)"
+            [style]="{'width':'175px'}"
+            [showClear]="false"></p-dropdown>
+          </div>
+          
+        </div> 
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" 
+        [routerLink]="['/live']" 
+        [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" role="tab" aria-controls="v-pills-home" 
+        aria-selected="true">Live Stream</a>
+        
+        <a class="nav-link" [routerLinkActive]="['active']"
+        [routerLink]="['/search']" role="tab" aria-controls="v-pills-home" 
+        aria-selected="true">Search</a>
+        
+      </div>
+    </div>
+    <div class="col-sm">
+      <router-outlet></router-outlet>
+    </div>
+    
+
+  </div>
+</div> -->

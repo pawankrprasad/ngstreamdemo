@@ -1,10 +1,17 @@
+import { environment } from './../environments/environment';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+  <span>{{version}}</span>
+  <router-outlet></router-outlet>`,
+  styles: []
 })
 export class AppComponent {
-  title = 'app';
+  
+
+  constructor(){
+  }
+
 }

@@ -1,0 +1,15 @@
+
+<div class="row">
+  <div class="col-sm-12">
+      <div class="h3 mb-2">Live Streaming from {{selectedCamera?.name}}</div>
+
+      <p-messages [(value)]="msgs"></p-messages>
+
+    <video id="video" controls="" autoplay="" height="500px" 
+    width="auto" #videoPlayer class="videoCentered">
+    </video>
+  </div>
+</div>
+
+
+

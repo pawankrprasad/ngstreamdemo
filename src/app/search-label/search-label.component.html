@@ -1,0 +1,88 @@
+<div class="row">
+        <div class="col-sm-12">
+            <div class="h3" style="margin-bottom: 20px;">Search label from {{selectedCamera?.name}}</div>
+
+            <form [formGroup]="frm" (ngSubmit)="search(frm.value)">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <span class="ui-float-label">
+                                <input name="searchLabel" type="text" size="30" 
+                                formControlName="label" pInputText>
+                                <label for="float-input">Enter label</label>
+                            </span>
+                            <span class="ui-message ui-messages-error ui-corner-all"
+                            *ngIf="label.errors?.required && (label.dirty||label.touched)">
+                                <i class="fa fa-close"></i>
+                                Label is required
+                            </span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span class="ui-float-label">
+                                <p-calendar name="dp" [showTime]="true" 
+                                formControlName="startDate"></p-calendar>
+                                <label for="float-input">From</label>
+                            </span>
+                            <span class="ui-message ui-messages-error ui-corner-all"
+                            *ngIf="startDate.errors?.required && (startDate.dirty||startDate.touched)">
+                                <i class="fa fa-close"></i>
+                                From date is required
+                            </span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span class="ui-float-label">
+                                <p-calendar name="dp" [showTime]="true" 
+                                formControlName="endDate"></p-calendar>
+                                <label for="float-input">To</label>
+                            </span>
+                            <span class="ui-message ui-messages-error ui-corner-all"
+                            *ngIf="endDate.errors?.required && (endDate.dirty||endDate.touched)">
+                                <i class="fa fa-close"></i>
+                                To date is required
+                            </span>
+                        </div>
+                        <div class="col-auto">
+                            <button pButton type="submit" label="Search"></button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+
+
+<div class="row" style="margin-top: 50px;">
+    <div class="col-sm-12">
+            <span class="font-weight-bold">Search Results</span>
+            <hr>
+               
+    <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Manifest File Name</th>
+                <th scope="col">Label</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time Time</th>
+                <th scope="col">Occurrence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of searchREsult">
+                <th>
+                   <a href="" (click)="play($event,item)">{{item.manifest_file_name}}</a></th>
+                <td>{{item.label}}</td>
+                <td>{{item.start_time | stringTodate}}</td>
+                <td>{{item.end_time| stringTodate}}</td>
+                <td>{{item.count}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+ 
+</div>
+<ngx-spinner
+bdColor = "rgba(51, 51, 51, 0.8)"
+size = "medium"
+color = "#337ab7"
+type = "ball-fussion"
+></ngx-spinner>
